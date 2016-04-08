@@ -10,6 +10,7 @@
 
 int main(int argc, char* argv[])
 {
+    // TODO put in test() function
 	Node* head = NULL;
 	Node a, b, c, d, e;
 	a.data = 1;
@@ -35,10 +36,13 @@ int main(int argc, char* argv[])
 	printListReverse(head);
 
 	// hashmap
+    // TODO put in test() function
 	put('c');
 	put('q');
 	
 	printMapInfo();
+
+    // TODO add test() functions for stack and queue
 
 	return 0;
 }
