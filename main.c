@@ -43,7 +43,31 @@ int main(int argc, char* argv[])
 	printMapInfo();
 
     // TODO add test() functions for stack and queue
+    testQueue();
 
 	return 0;
+}
+
+void testQueue(void)
+{
+	printQueueInfo();
+	enque('D');
+	enque('o');
+	enque('u');
+	enque('g');
+	enque(' ');
+	enque('i');
+	enque('s');
+	enque(' ');
+	printQueueInfo();
+	enque('c');
+	enque('o');
+	printQueueInfo();
+	deque();
+	deque();
+	printQueueInfo();
+	enque('o');
+	enque('l');
+	printQueueInfo();
 }
 
