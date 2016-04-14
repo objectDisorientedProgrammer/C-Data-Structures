@@ -50,6 +50,10 @@ int main(int argc, char* argv[])
 
 void testQueue(void)
 {
+	if(isEmpty())
+		puts("empty queue");
+	else
+		puts("not empty queue");
 	printQueueInfo();
 	enque('D');
 	enque('o');
@@ -66,6 +70,7 @@ void testQueue(void)
 	deque();
 	deque();
 	printQueueInfo();
+	printf("removed %d elements\n", removeAll());
 	enque('o');
 	enque('l');
 	printQueueInfo();
