@@ -1,80 +1,53 @@
-#include <stdio.h>
+#include "queue.h"
 
-#define SIZE 10
-#define TYPE char
-
-TYPE queue[SIZE];
-int f, r, qSize;
-
-void enque(TYPE elem)
+void enque(QTYPE elem)
 {
-	if(qSize != SIZE)
+	if(qSize != QSIZE)
 	{
-		queue[r++ % SIZE] = elem;
+		queue[r++ % QSIZE] = elem;
 		++qSize;
 	}
 	else
 		puts("too many elements");
 }
 
-int isEmpty()
+bool isEmpty(void)
 {
-	return qSize == 0? 1 : 0;
+	return qSize == 0? true : false;
 }
 
-TYPE deque()
+QTYPE deque(void)
 {
 	if(!isEmpty())
 	{
 		--qSize;
-		return queue[f++ % SIZE];
+		return queue[f++ % QSIZE];
 	}
 }
 
-TYPE peek()
+QTYPE peek(void)
 {
 	return queue[f];
 }
 
-void printQueueInfo()
+unsigned int removeAll(void)
+{
+	unsigned int oldSize = qSize;
+	qSize = 0;
+	f = 0;
+	r = 0;
+	return oldSize;
+}
+
+void printQueueInfo(void)
 {
 	if(!isEmpty())
 	{
-		for(int i = f; i < r; ++i)
-			printf("%c", queue[i % SIZE]);
-		printf(" %d elements in the queue\n", qSize); // todo change with TYPE
+		printf("'");
+		for(unsigned int i = f; i < r; ++i)
+			printf("%c", queue[i % QSIZE]);
+		printf("' %d elements in the queue\n", qSize); // TODO change with QTYPE
 	}
 	else
 		puts("[INFO] empty queue");
 }
-/*
-int main(void)
-{
-	f = 0;
-	r = 0;
-	qSize = 0;
-	
-	printQueueInfo();
-	enque('D');
-	enque('o');
-	enque('u');
-	enque('g');
-	enque(' ');
-	enque('i');
-	enque('s');
-	enque(' ');
-	printQueueInfo();
-	enque('c');
-	enque('o');
-	printQueueInfo();
-	deque();
-	deque();
-	printQueueInfo();
-	enque('o');
-	enque('l');
-	printQueueInfo();
-	
-	return 0;
-}
-*/
-

@@ -11,6 +11,9 @@
 
 #include "linkedlist.h"
 #include "hashmap.h"
+#include "queue.h"
+
+void testQueue(void);
 
 #endif
 
