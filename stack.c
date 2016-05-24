@@ -21,7 +21,7 @@ TYPE pop()
 	return stack[i--];
 }
 
-bool isEmpty()
+bool isEmptyStack()
 {
 	return i > 0? 0 : 1;
 }
@@ -33,7 +33,7 @@ int getSize()
 
 void printStackInfo()
 {
-	if(!isEmpty())
+	if(!isEmptyStack())
 	{
 		for(int s = i - 1; s >= 0; --s)
 			printf(" | %c |\n", stack[s]); // todo change with TYPE

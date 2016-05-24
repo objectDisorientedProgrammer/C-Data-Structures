@@ -13,6 +13,7 @@
 #include "hashmap.h"
 #include "queue.h"
 
+void testList(void);
 void testQueue(void);
 
 #endif

@@ -11,6 +11,23 @@
 int main(int argc, char* argv[])
 {
     // TODO put in test() function
+	testList();
+
+	// hashmap
+    // TODO put in test() function
+	put('c');
+	put('q');
+	
+	printMapInfo();
+
+    // TODO add test() functions for stack and queue
+    testQueue();
+
+	return 0;
+}
+
+void testList(void)
+{
 	Node* head = NULL;
 	Node a, b, c, d, e;
 	a.data = 1;
@@ -34,18 +51,6 @@ int main(int argc, char* argv[])
 	printList(head);
 	puts("list reversed:");
 	printListReverse(head);
-
-	// hashmap
-    // TODO put in test() function
-	put('c');
-	put('q');
-	
-	printMapInfo();
-
-    // TODO add test() functions for stack and queue
-    testQueue();
-
-	return 0;
 }
 
 void testQueue(void)
