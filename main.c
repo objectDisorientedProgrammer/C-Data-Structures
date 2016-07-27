@@ -15,13 +15,13 @@ int main(int argc, char* argv[])
 
 	// hashmap
     // TODO put in test() function
-	put('c');
-	put('q');
+	// put('c');
+	// put('q');
 	
-	printMapInfo();
+	// printMapInfo();
 
     // TODO add test() functions for stack and queue
-    testQueue();
+    // testQueue();
 
 	return 0;
 }
@@ -53,31 +53,31 @@ void testList(void)
 	printListReverse(head);
 }
 
-void testQueue(void)
-{
-	if(isEmpty())
-		puts("empty queue");
-	else
-		puts("not empty queue");
-	printQueueInfo();
-	enque('D');
-	enque('o');
-	enque('u');
-	enque('g');
-	enque(' ');
-	enque('i');
-	enque('s');
-	enque(' ');
-	printQueueInfo();
-	enque('c');
-	enque('o');
-	printQueueInfo();
-	deque();
-	deque();
-	printQueueInfo();
-	printf("removed %d elements\n", removeAll());
-	enque('o');
-	enque('l');
-	printQueueInfo();
-}
+// void testQueue(void)
+// {
+// 	if(isEmpty())
+// 		puts("empty queue");
+// 	else
+// 		puts("not empty queue");
+// 	printQueueInfo();
+// 	enque('D');
+// 	enque('o');
+// 	enque('u');
+// 	enque('g');
+// 	enque(' ');
+// 	enque('i');
+// 	enque('s');
+// 	enque(' ');
+// 	printQueueInfo();
+// 	enque('c');
+// 	enque('o');
+// 	printQueueInfo();
+// 	deque();
+// 	deque();
+// 	printQueueInfo();
+// 	printf("removed %d elements\n", removeAll());
+// 	enque('o');
+// 	enque('l');
+// 	printQueueInfo();
+// }
 

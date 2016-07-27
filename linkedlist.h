@@ -7,11 +7,11 @@
 
 #include <stdio.h>
 
-typedef struct node Node; 
+//typedef struct node Node;
 typedef struct node
 {
 	int data;
-	Node* next;
+	struct node* next;
 } Node;
 
 void printList(Node* start);
