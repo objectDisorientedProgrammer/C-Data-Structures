@@ -10,8 +10,8 @@
 #define MAIN_H
 
 #include "linkedlist.h"
-#include "hashmap.h"
-#include "queue.h"
+//#include "hashmap.h"
+//#include "queue.h"
 
 void testList(void);
 void testQueue(void);

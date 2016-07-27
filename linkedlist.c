@@ -9,7 +9,7 @@ void printList(Node* start)
 void printListReverse(Node* start)
 {
 	if(start->next != NULL)
-		printListReverse(start->next);	
+		printListReverse(start->next);
 	printf("node data = %d\n", start->data);
 }
 
