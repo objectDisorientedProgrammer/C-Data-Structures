@@ -1,12 +1,5 @@
+#include "stack.h"
 #include <stdio.h>
-
-#define SIZE 20
-#define TYPE char
-
-typedef int bool;
-
-TYPE stack[SIZE];
-int i;
 
 void push(TYPE ele)
 {
