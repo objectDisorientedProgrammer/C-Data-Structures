@@ -1,6 +1,10 @@
 #include "stack.h"
 #include <stdio.h>
 
+// local variables
+static TYPE stack[SIZE];
+static int i = 0;
+
 void push(TYPE ele)
 {
 	if(i + 1 < SIZE)
@@ -16,7 +20,7 @@ TYPE pop()
 
 bool isEmptyStack()
 {
-	return i > 0? 0 : 1;
+	return i > 0? false : true;
 }
 
 int getSize()
@@ -37,11 +41,10 @@ void printStackInfo()
 		printf("[INFO] empty stack\n");
 	
 }
+
 /*
 int main(int argc, char* argv[])
-{
-	i = 0;
-	
+{	
 	printStackInfo();
 	push('g');
 	push('u');
@@ -56,4 +59,3 @@ int main(int argc, char* argv[])
 	return 0;
 }
 */
-
