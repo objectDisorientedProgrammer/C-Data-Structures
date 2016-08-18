@@ -1,12 +1,9 @@
+#include "stack.h"
 #include <stdio.h>
 
-#define SIZE 20
-#define TYPE char
-
-typedef int bool;
-
-TYPE stack[SIZE];
-int i;
+// local variables
+static TYPE stack[SIZE];
+static int i = 0;
 
 void push(TYPE ele)
 {
@@ -23,7 +20,7 @@ TYPE pop()
 
 bool isEmptyStack()
 {
-	return i > 0? 0 : 1;
+	return i > 0? false : true;
 }
 
 int getSize()
@@ -44,11 +41,10 @@ void printStackInfo()
 		printf("[INFO] empty stack\n");
 	
 }
+
 /*
 int main(int argc, char* argv[])
-{
-	i = 0;
-	
+{	
 	printStackInfo();
 	push('g');
 	push('u');
@@ -63,4 +59,3 @@ int main(int argc, char* argv[])
 	return 0;
 }
 */
-
