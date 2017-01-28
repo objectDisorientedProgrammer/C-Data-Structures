@@ -21,12 +21,18 @@
 # SOFTWARE.
 
 CC=clang
-CFLAGS=-O0 #-std=c11
-M=main.c linkedlist.c
+CFLAGS=-O0 -v #-std=c11
+L=list/linkedlist.c
+H=hashmap.c
+MAIN=main.c 
 APP=ds
 
-all: $M
-	$(CC) $(CFLAGS) $M -o $(APP)
+all: $(MAIN) list/linkedlist.o
+	$(CC) $(CFLAGS) $(MAIN) -o $(APP)
+
+linkedlist.o: $L
+	$(CC) $(CFLAGS) $L -c
+	mv linkedlist.o list
 
 .PHONY: all
 
@@ -36,4 +42,4 @@ check: all
 
 # remove APP
 clean:
-	rm $(APP)
+	rm $(APP) *.o list/*.o

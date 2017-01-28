@@ -9,7 +9,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "linkedlist.h"
+#include "list/linkedlist.h"
 //#include "hashmap.h"
 //#include "queue.h"
 
