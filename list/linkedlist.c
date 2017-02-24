@@ -1,15 +1,7 @@
 #include "linkedlist.h"
 
-void printList(Node* start)
+void List_addNodeBefore(Node* head)
 {
-	for(Node* cur = start; cur; cur = cur->next)
-		printf("node data = %d\n", cur->data);
+    Node* temp = head->next;
+    //head->next = new node // TODO add static memory storage
 }
-
-void printListReverse(Node* start)
-{
-	if(start->next != NULL)
-		printListReverse(start->next);
-	printf("node data = %d\n", start->data);
-}
-

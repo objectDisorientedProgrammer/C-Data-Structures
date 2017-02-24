@@ -8,76 +8,130 @@
 
 #include "main.h"
 
+static void printData(void* data, char format);
+static void printList(Node* start, char format);
+static void printListReverse(Node* start, char format);
+
 int main(int argc, char* argv[])
 {
     // TODO put in test() function
-	testList();
+    testList();
 
-	// hashmap
+    // hashmap
     // TODO put in test() function
-	// put('c');
-	// put('q');
-	
-	// printMapInfo();
+    // put('c');
+    // put('q');
+
+    // printMapInfo();
 
     // TODO add test() functions for stack and queue
     // testQueue();
 
-	return 0;
+    return 0;
+}
+
+/*
+static void printData(void* data, char format)
+{
+    if(data != NULL)
+    {
+        switch(format)
+        {
+            case 'c': // character
+                char c = (char) *data;
+                printf("node data = %c\n", c));
+                break;
+            case 'd': // integer
+            case 'i':
+                int i = (int) *data;
+                printf("node data = %d\n", i);
+                break;
+            case 'f':
+                float f = (float) *data;
+                printf("node data = %.2f\n", f));
+                break;
+            case 'x':
+                char x = (char) *data;
+                printf("node data = %x\n", x));
+                break;
+            default:
+                break;
+        }
+    }
+}
+*/
+
+/**
+ * @param start - pointer to starting node.
+ * @param format - format specifier for printf ('d' for int, 'c' for char, 'f' for float, etc.)
+ */
+static void printList(Node* start, char format)
+{
+    for(Node* cur = start; cur; cur = cur->next)
+        printf("node data = %d\n", cur->data);
+        //printData(cur->data, format);
+}
+
+static void printListReverse(Node* start, char format)
+{
+    if(start->next != NULL)
+        printListReverse(start->next, format);
+
+    printf("node data = %d\n", start->data);
+    //printData(start->data, format);
 }
 
 void testList(void)
 {
-	Node* head = NULL;
-	Node a, b, c, d, e;
-	a.data = 1;
-	a.next = NULL;
-	
-	b.data = 2;
-	b.next = &a;
+    Node* head = NULL;
+    Node a, b, c, d, e;
+    a.data = 1;
+    a.next = NULL;
 
-	c.data = 3;
-	c.next = &b;
+    b.data = 2;
+    b.next = &a;
 
-	d.data = 4;
-	d.next = &c;
+    c.data = 3;
+    c.next = &b;
 
-	e.data = 5;
-	e.next = &d;
+    d.data = 4;
+    d.next = &c;
 
-	head = &e;
+    e.data = 5;
+    e.next = &d;
 
-	puts("list:");
-	printList(head);
-	puts("list reversed:");
-	printListReverse(head);
+    head = &e;
+
+    puts("list:");
+    printList(head, 'd');
+    puts("list reversed:");
+    printListReverse(head, 'd');
 }
 
 // void testQueue(void)
 // {
-// 	if(isEmpty())
-// 		puts("empty queue");
-// 	else
-// 		puts("not empty queue");
-// 	printQueueInfo();
-// 	enque('D');
-// 	enque('o');
-// 	enque('u');
-// 	enque('g');
-// 	enque(' ');
-// 	enque('i');
-// 	enque('s');
-// 	enque(' ');
-// 	printQueueInfo();
-// 	enque('c');
-// 	enque('o');
-// 	printQueueInfo();
-// 	deque();
-// 	deque();
-// 	printQueueInfo();
-// 	printf("removed %d elements\n", removeAll());
-// 	enque('o');
-// 	enque('l');
-// 	printQueueInfo();
+//     if(isEmpty())
+//         puts("empty queue");
+//     else
+//         puts("not empty queue");
+//     printQueueInfo();
+//     enque('D');
+//     enque('o');
+//     enque('u');
+//     enque('g');
+//     enque(' ');
+//     enque('i');
+//     enque('s');
+//     enque(' ');
+//     printQueueInfo();
+//     enque('c');
+//     enque('o');
+//     printQueueInfo();
+//     deque();
+//     deque();
+//     printQueueInfo();
+//     printf("removed %d elements\n", removeAll());
+//     enque('o');
+//     enque('l');
+//     printQueueInfo();
 // }
-
