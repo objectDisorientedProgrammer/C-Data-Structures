@@ -1,61 +1,66 @@
 #include "stack.h"
-#include <stdio.h>
 
 // local variables
 static TYPE stack[SIZE];
 static int i = 0;
 
-void push(TYPE ele)
+void Stack_push(TYPE ele)
 {
-	if(i + 1 < SIZE)
-		stack[i++] = ele;
-	else
-		fprintf(stderr, "size limit reached\n");
+    if(i + 1 < SIZE)
+        stack[i++] = ele;
 }
 
-TYPE pop()
+TYPE Stack_pop()
 {
-	return stack[i--];
+    return stack[i--];
 }
 
-bool isEmptyStack()
+bool Stack_isEmpty()
 {
-	return i > 0? false : true;
+    return i > 0? false : true;
 }
 
-int getSize()
+int Stack_getSize()
 {
-	return i - 1;
+    unsigned int size = 0;
+    
+    if(i >= 1)
+        size = i - 1;
+
+    return size;
 }
 
-void printStackInfo()
+/* TODO move to main...
+void Stack_printInfo()
 {
-	if(!isEmptyStack())
-	{
-		for(int s = i - 1; s >= 0; --s)
-			printf(" | %c |\n", stack[s]); // todo change with TYPE
-		puts(" -----");
-		printf("[INFO] %d elements in the stack\n", i);
-	}
-	else
-		printf("[INFO] empty stack\n");
-	
+    if(!Stack_isEmpty())
+    {
+        for(int s = i - 1; s >= 0; --s)
+            printf(" | %c |\n", stack[s]); // todo change with TYPE
+        puts(" -----");
+        printf("[INFO] %d elements in the stack\n", i);
+    }
+    else
+        printf("[INFO] empty stack\n");
+    
 }
+*/
+
 
 /*
 int main(int argc, char* argv[])
-{	
-	printStackInfo();
-	push('g');
-	push('u');
-	push('o');
-	push('D');
-	printStackInfo();
-	
-	pop();
-	pop();
-	printStackInfo();
-	
-	return 0;
+{   
+    printStackInfo();
+    push('g');
+    push('u');
+    push('o');
+    push('D');
+    printStackInfo();
+    
+    pop();
+    pop();
+    printStackInfo();
+    
+    return 0;
 }
 */
