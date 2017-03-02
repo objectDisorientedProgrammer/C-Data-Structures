@@ -1,8 +1,11 @@
 # C-Data-Structures
-A place for data structures implemented in C
+A place for data structures implemented in C.
+These implementations will not use dynamic memory allocation.
+
+Created with doxygen compliant comments.
 
 ### Contains
 * map
-* linked list
-* queue
+* linked list (4% implemented)
+* queue       (87% implemented)
 * stack

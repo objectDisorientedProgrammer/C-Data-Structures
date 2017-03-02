@@ -15,9 +15,9 @@
 
 typedef struct pair
 {
-	KEYTYPE k;
-	VALTYPE v;
-	// add a 'next' pointer? (chaining)
+    KEYTYPE k;
+    VALTYPE v;
+    // add a 'next' pointer? (chaining)
 } Pair;
 
 // Private variables

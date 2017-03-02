@@ -9,12 +9,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "linkedlist.h"
+#include <stdio.h>
+#include "list/linkedlist.h"
 //#include "hashmap.h"
-//#include "queue.h"
+#include "queue/queue.h"
 
 void testList(void);
 void testQueue(void);
 
 #endif
-
