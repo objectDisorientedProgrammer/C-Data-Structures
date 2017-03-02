@@ -28,7 +28,7 @@ H=hashmap.c
 MAIN=main.c 
 APP=ds
 
-all: $(MAIN) list queue
+all: $(MAIN) list queue.o
 	$(CC) $(CFLAGS) $(MAIN) -o $(APP)
 
 list: linkedlist.o

@@ -115,6 +115,7 @@ void testList(void)
 
 void printQueueInfo(void)
 {
+    /* TODO make this work...
     if(!Queue_isEmpty())
     {
         printf("%d elements in the queue.\n", Queue_getSize());
@@ -125,6 +126,7 @@ void printQueueInfo(void)
     }
     else
         puts("[INFO] empty queue");
+    */
 }
 
 // void testQueue(void)
