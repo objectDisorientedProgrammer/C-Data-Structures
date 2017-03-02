@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "list/linkedlist.h"
 //#include "hashmap.h"
-//#include "queue.h"
+#include "queue/queue.h"
 
 void testList(void);
 void testQueue(void);

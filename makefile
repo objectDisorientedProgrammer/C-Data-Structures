@@ -23,16 +23,25 @@
 CC=clang
 CFLAGS=-O0 -v #-std=c11
 L=list/linkedlist.c
+Q=queue/queue.c
 H=hashmap.c
 MAIN=main.c 
 APP=ds
 
-all: $(MAIN) list/linkedlist.o
+all: $(MAIN) list queue
 	$(CC) $(CFLAGS) $(MAIN) -o $(APP)
+
+list: linkedlist.o
 
 linkedlist.o: $L
 	$(CC) $(CFLAGS) $L -c
 	mv linkedlist.o list
+
+#queue: queue.o
+
+queue.o: $Q
+	$(CC) $(CFLAGS) $Q -c
+	mv queue.o queue
 
 .PHONY: all
 
@@ -42,4 +51,4 @@ check: all
 
 # remove APP
 clean:
-	rm $(APP) *.o list/*.o
+	rm $(APP) *.o list/*.o queue/*.o

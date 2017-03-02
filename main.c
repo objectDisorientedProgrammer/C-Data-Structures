@@ -12,6 +12,11 @@ static void printData(void* data, char format);
 static void printList(Node* start, char format);
 static void printListReverse(Node* start, char format);
 
+/**
+ * @brief Print all elements in the queue if there are any.
+ */
+void printQueueInfo(void);
+
 int main(int argc, char* argv[])
 {
     // TODO put in test() function
@@ -106,6 +111,20 @@ void testList(void)
     printList(head, 'd');
     puts("list reversed:");
     printListReverse(head, 'd');
+}
+
+void printQueueInfo(void)
+{
+    if(!Queue_isEmpty())
+    {
+        printf("%d elements in the queue.\n", Queue_getSize());
+        // printf("'");
+        // for(unsigned int i = f; i < r; ++i)
+        //     printf("%c", queue[i % QSIZE]);
+        // printf("' %d elements in the queue\n", qSize); // TODO change with QTYPE
+    }
+    else
+        puts("[INFO] empty queue");
 }
 
 // void testQueue(void)

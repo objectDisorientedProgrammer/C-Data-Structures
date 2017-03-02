@@ -1,53 +1,43 @@
 #include "queue.h"
 
-void enque(QTYPE elem)
+void Queue_enque(QTYPE elem)
 {
-	if(qSize != QSIZE)
-	{
-		queue[r++ % QSIZE] = elem;
-		++qSize;
-	}
-	else
-		puts("too many elements");
+    if(qSize != QSIZE)
+    {
+        queue[r++ % QSIZE] = elem;
+        ++qSize;
+    }
 }
 
-bool isEmpty(void)
+bool Queue_isEmpty(void)
 {
-	return qSize == 0? true : false;
+    return qSize == 0? true : false;
 }
 
-QTYPE deque(void)
+QTYPE Queue_deque(void)
 {
-	if(!isEmpty())
-	{
-		--qSize;
-		return queue[f++ % QSIZE];
-	}
+    if(!Queue_isEmpty())
+    {
+        --qSize;
+    }
+    return queue[f++ % QSIZE];
 }
 
-QTYPE peek(void)
+QTYPE Queue_peek(void)
 {
-	return queue[f];
+    return queue[f];
 }
 
-unsigned int removeAll(void)
+unsigned int Queue_removeAll(void)
 {
-	unsigned int oldSize = qSize;
-	qSize = 0;
-	f = 0;
-	r = 0;
-	return oldSize;
+    unsigned int oldSize = qSize;
+    qSize = 0;
+    f = 0;
+    r = 0;
+    return oldSize;
 }
 
-void printQueueInfo(void)
+unsigned int Queue_getSize(void)
 {
-	if(!isEmpty())
-	{
-		printf("'");
-		for(unsigned int i = f; i < r; ++i)
-			printf("%c", queue[i % QSIZE]);
-		printf("' %d elements in the queue\n", qSize); // TODO change with QTYPE
-	}
-	else
-		puts("[INFO] empty queue");
+    return qSize;
 }

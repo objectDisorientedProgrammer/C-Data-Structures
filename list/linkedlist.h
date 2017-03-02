@@ -33,5 +33,6 @@ typedef struct node
 } Node;
 
 void List_addNodeBefore(Node* head);
+unsigned int List_getSize(void);
 
 #endif
