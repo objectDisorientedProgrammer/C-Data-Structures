@@ -9,3 +9,5 @@ Created with doxygen compliant comments.
 * linked list (4% implemented)
 * queue       (87% implemented)
 * stack
+* binary tree (10% implemented)
+
