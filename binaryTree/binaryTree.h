@@ -35,6 +35,11 @@ typedef struct tNode
     int data;
 } TreeNode;
 
+/**
+ * @brief Insert a new node below a node.
+ * @param[in] node to insert below.
+ * @return a pointer to the new node.
+ */
 TreeNode* Tree_insertNode(TreeNode*);
 void Tree_removeNode(TreeNode*);
 TreeNode* Tree_findNode(TreeNode*, int);

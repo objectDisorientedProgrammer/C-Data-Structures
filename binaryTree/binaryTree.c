@@ -35,13 +35,13 @@ TreeNode* Tree_insertNode(TreeNode* node)
     if(Tree_isEmpty())
     {
         // create a root node
-        root = (TreeNode*) malloc(sizeof(TreeNode));
-        root->left = NULL;
-        root->right = NULL;
-        root->data = 0;
+        newNode = (TreeNode*) malloc(sizeof(TreeNode));
+        newNode->left = NULL;
+        newNode->right = NULL;
+        newNode->data = 0;
         
         ++treeSize; // increment node count
-        newNode = root; // set new node
+        root = newNode; // set new node
     }
     else if(node->left == NULL)
     {
@@ -53,21 +53,63 @@ TreeNode* Tree_insertNode(TreeNode* node)
         ++treeSize;
         node->left = newNode;
     }
+    else if(node->right == NULL)
+    {
+        newNode = (TreeNode*) malloc(sizeof(TreeNode));
+        newNode->left = NULL;
+        newNode->right = NULL;
+        newNode->data = 0;
+
+        ++treeSize;
+        node->right = newNode;
+    }
+    else
+    {
+        // TODO find smallest subtree and add node there
+        newNode = Tree_insertNode(node->left);
+    }
 
     return newNode;
 }
 
 void Tree_removeNode(TreeNode* node)
 {
-    if(node == NULL)
-        return;
-    if(node->left == NULL && node->right == NULL)
+    // if leaf
+    if(Tree_isLeaf(node))
+    {
         free(node);
+        --treeSize;
+    }
+    // TODO fix memory leak here...
+    // if(node->left != NULL)
+    //     Tree_removeNode(node->left);
+    // if(node->right != NULL)
+    // {
+    //     Tree_removeNode(node->right);
+    // }
 }
 
 TreeNode* Tree_findNode(TreeNode* node, int data)
 {
+    TreeNode* foundNode = NULL;
+    bool keepSearching = true;
 
+    if(node != NULL)
+    {
+        if(node->data == data)
+        {
+            foundNode = node;
+            keepSearching = false;
+        }
+        if(keepSearching && node->left != NULL)
+        {
+            foundNode = Tree_findNode(node->left, data);
+        }
+        if(keepSearching && node->right != NULL)
+            foundNode = Tree_findNode(node->right, data);
+    }
+
+    return foundNode;
 }
 
 TreeNode* Tree_getRoot(void)
@@ -82,7 +124,7 @@ bool Tree_isRoot(TreeNode* node)
 
 bool Tree_isLeaf(TreeNode* node)
 {
-
+    return (node->left == NULL && node->right == NULL)? true : false;
 }
 
 int Tree_getSize(void)
