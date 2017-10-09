@@ -24,25 +24,27 @@ CC=clang-3.5
 CFLAGS=-O0 -std=gnu99 -ggdb
 FILE=maxHeap
 HEAP=$(FILE).c
+UNITTEST=test
+UNITTEST_OBJ=$(UNITTEST).o
+UNITTEST_SRC=$(UNITTEST).c
 
 all: $(FILE).o
 
 $(FILE).o: $(HEAP)
 	$(CC) $(CFLAGS) $(HEAP) -c
 
-test.o: test.c
-	$(CC) $(CFLAGS) test.c -c
+$(UNITTEST_OBJ): $(UNITTEST_SRC)
+	$(CC) $(CFLAGS) $(UNITTEST_SRC) -c
 
-test: $(FILE).o test.o
-	$(CC) $(CFLAGS) $(FILE).o test.o -o unitTest
+unitTests: $(FILE).o $(UNITTEST_OBJ)
+	$(CC) $(CFLAGS) $(FILE).o $(UNITTEST_OBJ) -o unitTest
 
 .PHONY: all
 
 # verify APP was created
-#check: all
-#	./$(APP)
+test: unitTests
+	./unitTest
 
 # remove APP
 clean:
 	rm $(FILE).o test.o unitTest
-
