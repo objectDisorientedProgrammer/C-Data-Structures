@@ -31,8 +31,13 @@ int heapSize = 0;
 // local functions
 void maxHeapify(int* array, int length, int index);
 void delete(int element);
-void siftUp(void);
-void siftDown(void);
+
+/**
+ * @brief Balance the max heap from an index.
+ * @param[in] elementIndex - the index to sift up from.
+ */
+int siftUp(int elementIndex);
+int siftDown(int parentIndex);
 int parent(int index); // floor((index - 1) / 2)
 int leftChild(int index); // find left child of node at index (assuming zero based array)
 int rightChild(int index); // find right child of node at index (assuming zero based array)
@@ -40,38 +45,64 @@ int rightChild(int index); // find right child of node at index (assuming zero b
 // external functions
 void MaxHeap_create(int* array, int length)
 {
-    for(int i = length >> 1; i >= 0; --i)
-        maxHeapify(array, length, i);
+    // set local variables
     heapSize = length;
     heap = array;
+
+    for(int i = heapSize >> 1; i >= 0; --i)
+        maxHeapify(heap, heapSize, i);
 }
 
 int MaxHeap_findMax(void)
 {
     int maxValue;
     
-    if(MaxHeap_isEmpty())
-        maxValue = -1; // error, heap is empty
+    if(heap != NULL)
+    {
+        if(MaxHeap_isEmpty() == true)
+            maxValue = -1; // error, heap is empty
+        else
+            maxValue = heap[0]; // the root is always the max in a max heap
+    }
     else
-        maxValue = heap[0]; // the root is always the max in a max heap
+    {
+        maxValue = -2; // error, NULL pointer
+    }
     
     return maxValue;
 }
 
-int MaxHeap_insert(int* array, int length, int element)
+void MaxHeap_insert(int element)
 {
-    // put element at the end of the array
-    // call siftUp
+    // put element at the end of the heap
+    ++heapSize;
+    heap[heapSize - 1] = element;
+
+    // call siftUp from the new element to the root
+    // balance the heap
+    for(int p = heapSize - 1; p > 0; )
+        p = siftUp(p);
 }
 
-int MaxHeap_deleteMax(void)
+void MaxHeap_deleteMax(void)
 {
+    --heapSize;
+    // move last element to root
+    heap[0] = heap[heapSize];
 
+    // balance the heap
+    for(int c = 0; c < heapSize; )
+        c = siftDown(c);
 }
 
-int MaxHeap_replace(int newElement)
+void MaxHeap_replace(int newElement)
 {
+    // replace root value with new value
+    heap[0] = newElement;
 
+    // balance the heap
+    for(int c = 0; c < heapSize; )
+        c = siftDown(c);
 }
 
 int MaxHeap_getSize(void)
@@ -107,6 +138,54 @@ void maxHeapify(int* array, int length, int index)
 
         maxHeapify(array, length, largest);
     }
+}
+
+int siftUp(int elementIndex)
+{
+    int parentIndex = parent(elementIndex);
+    int leftIndex = leftChild(parentIndex);
+    int rightIndex = rightChild(parentIndex);
+    int swapVar = heap[parentIndex];
+    int swapIndex = 0;
+
+    // if right child within the heap bounds
+    if(rightIndex < heapSize)
+        // find the index of the max of left child's value and right child's value
+        swapIndex = (heap[leftIndex] < heap[rightIndex]) ? rightIndex : leftIndex;
+    else
+        // no right child exists, use left
+        swapIndex = leftIndex;
+
+    // if the value at the swap index is > the value at the parent
+    if(swapIndex < heapSize && heap[swapIndex] > heap[parentIndex])
+    {
+        // swap parent value with child value
+        heap[parentIndex] = heap[swapIndex];
+        heap[swapIndex] = swapVar;
+    }
+    
+    return parentIndex;
+}
+
+int siftDown(int parentIndex)
+{
+    int leftIndex = leftChild(parentIndex);
+    int rightIndex = rightChild(parentIndex);
+    int swapIndex = 0;
+    int swapVar = heap[parentIndex];
+
+    if(rightIndex < heapSize)
+        swapIndex = (heap[leftIndex] < heap[rightIndex]) ? rightIndex : leftIndex;
+    else
+        swapIndex = leftIndex;
+
+    if(swapIndex < heapSize && heap[swapIndex] > heap[parentIndex])
+    {
+        heap[parentIndex] = heap[swapIndex];
+        heap[swapIndex] = swapVar;
+    }
+
+    return swapIndex;
 }
 
 int parent(int index)

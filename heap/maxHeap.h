@@ -29,17 +29,19 @@
 
 /**
  * @brief Create a max heap out of an array of elements.
+ * @param[in] array - the array to turn into a heap.
+ * @param[in] length - the length of the array.
  */
-void MaxHeap_create(int*, int);
+void MaxHeap_create(int* array, int length);
 
 /**
  * @brief Find the maximum value in the heap.
- * @return max value or -1 if heap is empty.
+ * @return max value, -1 if heap is empty, or -2 if heap is NULL.
  */
 int MaxHeap_findMax(void);
-int MaxHeap_insert(int); // add new value
-int MaxHeap_deleteMax(void); // remove root
-int MaxHeap_replace(int); // replace root with new value
+void MaxHeap_insert(int); // add new value
+void MaxHeap_deleteMax(void); // remove root
+void MaxHeap_replace(int); // replace root with new value
 
 int MaxHeap_getSize(void);
 bool MaxHeap_isEmpty(void);
