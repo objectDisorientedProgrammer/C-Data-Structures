@@ -40,6 +40,7 @@ void MaxHeap_create(int* array, int length);
  */
 int MaxHeap_findMax(void);
 void MaxHeap_insert(int); // add new value
+int MaxHeap_extractMax(void); // remove root and return value
 void MaxHeap_deleteMax(void); // remove root
 void MaxHeap_replace(int); // replace root with new value
 

@@ -84,6 +84,15 @@ void MaxHeap_insert(int element)
         p = siftUp(p);
 }
 
+int MaxHeap_extractMax(void)
+{
+    int maximumValue = heap[0];
+
+    MaxHeap_deleteMax();
+
+    return maximumValue;
+}
+
 void MaxHeap_deleteMax(void)
 {
     --heapSize;
