@@ -1,4 +1,9 @@
-/*
+/**
+    @file binaryTree.h
+
+
+
+
     MIT License
 
     Copyright (c) 2017 Douglas Chidester
@@ -39,7 +44,7 @@ TreeNode* Tree_insertNode(TreeNode* node)
         root->left = NULL;
         root->right = NULL;
         root->data = 0;
-        
+
         ++treeSize; // increment node count
         newNode = root; // set new node
     }

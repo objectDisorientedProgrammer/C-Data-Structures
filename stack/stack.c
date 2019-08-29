@@ -25,16 +25,16 @@
 #include "stack.h"
 
 // local variables
-static TYPE stack[SIZE];
+static STACK_TYPE stack[SIZE];
 static int i = 0;
 
-void Stack_push(TYPE ele)
+void Stack_push(STACK_TYPE ele)
 {
     if(i + 1 < SIZE)
         stack[i++] = ele;
 }
 
-TYPE Stack_pop()
+STACK_TYPE Stack_pop()
 {
     return stack[i--];
 }
@@ -47,7 +47,7 @@ bool Stack_isEmpty()
 int Stack_getSize()
 {
     unsigned int size = 0;
-    
+
     if(i >= 1)
         size = i - 1;
 

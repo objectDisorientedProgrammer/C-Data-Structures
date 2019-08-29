@@ -1,7 +1,7 @@
-/*
-    hashmap.h
-    8 April 2016
-    Douglas Chidester
+/**
+    @file hashmap.h
+    @created 8 April 2016
+    @author Douglas Chidester
 
 
 
@@ -36,7 +36,7 @@
 
 #define KEYTYPE char
 #define VALTYPE int
-#define SIZE 2
+#define MAP_SIZE 4
 
 typedef struct pair
 {
@@ -45,17 +45,10 @@ typedef struct pair
     // add a 'next' pointer? (chaining)
 } Pair;
 
-// Private variables
-// need map of pointers to structs
-static VALTYPE map[SIZE];
-static int hashvalue = 0;
-static int mapSize = 0;
-
-
 // Public functions
 int hashFn(KEYTYPE elem);
 void put(KEYTYPE key);
-void printMapInfo();
+void printMapInfo(void);
 
-#endif
+#endif // HASHMAP_H
 

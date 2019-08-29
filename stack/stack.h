@@ -28,7 +28,7 @@
 #include <stdbool.h>
 
 #define SIZE 20   // max stack size
-#define TYPE char // stack data type
+#define STACK_TYPE char // stack data type
 
 // functions
 
@@ -36,13 +36,13 @@
  * @brief
  * @param
  */
-void Stack_push(TYPE ele);
+void Stack_push(STACK_TYPE ele);
 
 /**
  * @brief
  * @return
  */
-TYPE Stack_pop();
+STACK_TYPE Stack_pop();
 
 /**
  * @brief
@@ -62,4 +62,4 @@ int Stack_getSize();
 void Stack_printInfo();
 
 
-#endif
+#endif // STACK_H

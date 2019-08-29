@@ -1,4 +1,9 @@
-/*
+/**
+    @file maxheap.c
+
+
+
+
     MIT License
 
     Copyright (c) 2017 Douglas Chidester
@@ -56,7 +61,7 @@ void MaxHeap_create(int* array, int length)
 int MaxHeap_findMax(void)
 {
     int maxValue;
-    
+
     if(heap != NULL)
     {
         if(MaxHeap_isEmpty() == true)
@@ -68,7 +73,7 @@ int MaxHeap_findMax(void)
     {
         maxValue = -2; // error, NULL pointer
     }
-    
+
     return maxValue;
 }
 
@@ -172,7 +177,7 @@ int siftUp(int elementIndex)
         heap[parentIndex] = heap[swapIndex];
         heap[swapIndex] = swapVar;
     }
-    
+
     return parentIndex;
 }
 

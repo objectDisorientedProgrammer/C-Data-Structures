@@ -1,4 +1,13 @@
-/*
+/**
+    @file queue.c
+    @created 13 April 2016
+    @author Douglas Chidester
+
+    @brief A queue in C.
+
+
+
+
     MIT License
 
     Copyright (c) 2016 Douglas Chidester
@@ -23,6 +32,12 @@
 */
 
 #include "queue.h"
+
+// private variables
+static QTYPE queue[QSIZE];     // holds data
+static unsigned int f = 0;     // front index
+static unsigned int r = 0;     // rear index
+static unsigned int qSize = 0; // current number of elements
 
 void Queue_enque(QTYPE elem)
 {
@@ -65,3 +80,4 @@ unsigned int Queue_getSize(void)
 {
     return qSize;
 }
+

@@ -1,9 +1,9 @@
-/*
-    queue.h
-    13 April 2016
-    Douglas Chidester
+/**
+    @file queue.h
+    @created 13 April 2016
+    @author Douglas Chidester
 
-    A queue in C.
+    @brief A queue in C.
 
 
 
@@ -37,12 +37,6 @@
 
 #define QSIZE 10   // maximum size of the queue
 #define QTYPE char // type of data stored in the queue
-
-// private variables
-static QTYPE queue[QSIZE];     // holds data
-static unsigned int f = 0;     // front index
-static unsigned int r = 0;     // rear index
-static unsigned int qSize = 0; // current number of elements
 
 // public functions
 
@@ -81,4 +75,5 @@ unsigned int Queue_removeAll(void);
  */
 unsigned int Queue_getSize(void);
 
-#endif
+#endif // QUEUE_H
+

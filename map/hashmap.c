@@ -1,4 +1,7 @@
-/*
+/**
+    @file hashmap.c
+
+
  * map[ X X X X X X X X ]
  *      | | | | | | | |
  *      v v v v v v v v
@@ -31,16 +34,22 @@
 
 #include "hashmap.h"
 
+// Private variables
+// need map of pointers to structs
+static VALTYPE map[MAP_SIZE];
+static int hashvalue = 0;
+static int mapSize = 0;
+
 int hashFn(KEYTYPE elem)
 {
     KEYTYPE high = elem;
     high = high >> 4;
-    
+
     KEYTYPE low = elem;
     low = low << 4;
-    
+
     hashvalue = low * high;
-    return hashvalue % SIZE;
+    return hashvalue % MAP_SIZE;
 }
 
 void put(KEYTYPE key)
@@ -49,9 +58,9 @@ void put(KEYTYPE key)
     ++mapSize;
 }
 
-void printMapInfo()
+void printMapInfo(void)
 {
-    for(int i = 0; i < SIZE; ++i)
+    for(int i = 0; i < MAP_SIZE; ++i)
         printf("map[%d] = %d\n", i, map[i]);
 }
 

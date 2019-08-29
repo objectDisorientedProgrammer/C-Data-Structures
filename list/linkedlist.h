@@ -1,4 +1,9 @@
-/*
+/**
+    @file linkedlist.h
+
+
+
+
     MIT License
 
     Copyright (c) 2016 Douglas Chidester
@@ -35,4 +40,4 @@ typedef struct node
 void List_addNodeBefore(Node* head);
 unsigned int List_getSize(void);
 
-#endif
+#endif // LINKEDLIST_H

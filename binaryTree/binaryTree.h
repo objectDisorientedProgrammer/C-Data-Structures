@@ -1,4 +1,9 @@
-/*
+/**
+    @file binaryTree.h
+
+
+
+
     MIT License
 
     Copyright (c) 2017 Douglas Chidester
