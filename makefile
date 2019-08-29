@@ -20,30 +20,24 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-CC=clang
-CFLAGS=-O0 -v #-std=c11
+CC=gcc
+CFLAGS=-O1 -std=gnu11
 L=list/linkedlist.c
 Q=queue/queue.c
 H=hashmap.c
 MAIN=main.c 
 APP=ds
 
-all: $(MAIN) list queue.o
-	$(CC) $(CFLAGS) $(MAIN) -o $(APP)
+.PHONY: all check clean
 
-list: linkedlist.o
+all: $(MAIN) list/linkedlist.o queue/queue.o
+	$(CC) $(CFLAGS) -Ilist/ -Iqueue/ $(MAIN) -o $(APP)
 
-linkedlist.o: $L
+list/linkedlist.o: $L
 	$(CC) $(CFLAGS) $L -c
-	mv linkedlist.o list
 
-#queue: queue.o
-
-queue.o: $Q
+queue/queue.o: $Q
 	$(CC) $(CFLAGS) $Q -c
-	mv queue.o queue
-
-.PHONY: all
 
 # verify APP was created
 check: all
@@ -51,4 +45,5 @@ check: all
 
 # remove APP
 clean:
-	rm $(APP) *.o list/*.o queue/*.o
+	rm -f $(APP) *.o list/*.o queue/*.o
+
