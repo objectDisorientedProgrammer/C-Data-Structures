@@ -31,12 +31,23 @@ static int i = 0;
 void Stack_push(STACK_TYPE ele)
 {
     if(i + 1 < SIZE)
-        stack[i++] = ele;
+    {
+        stack[i] = ele;
+        ++i;
+    }
 }
 
 STACK_TYPE Stack_pop()
 {
-    return stack[i--];
+    char c = stack[i];
+    if(i > 0)
+        --i;
+    return c;
+}
+
+STACK_TYPE Stack_peak(void)
+{
+    return (i > 0) ? stack[i - 1] : stack[i];
 }
 
 bool Stack_isEmpty()
