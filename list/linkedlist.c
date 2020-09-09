@@ -28,8 +28,15 @@
 
 #include "linkedlist.h"
 
+static unsigned int size = 0;
+
 void List_addNodeBefore(Node* head)
 {
     Node* temp = head->next;
     //head->next = new node // TODO add static memory storage
+}
+
+unsigned int List_getSize(void)
+{
+    return size;
 }
